@@ -6,4 +6,4 @@ in the folder you can find:
 - "report" : final report printed in HTML
 
 Summary of contributions: 
-- commits: Matilde 7, Gianluca 4 ( due to the fact that there was a merging conflict)
+- commits: Matilde 7, Gianluca 7
