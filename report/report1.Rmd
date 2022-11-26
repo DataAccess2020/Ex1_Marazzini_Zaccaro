@@ -1,0 +1,41 @@
+---
+title: "exercise1"
+author: "Marazzini, Zaccaro"
+date: "26/11/2022"
+output: html_document
+---
+
+# Report - Correlation between democracy and city size
+
+## Introduction
+
+*Is democracy perceived as more important in big cities or in small cities?*
+
+This is the question that drove our research.
+
+Since in big cities there are more individuals, it's more likely there are more people that want to express their own opinion. For this reason, we hypothise in big cities democracy is perceived as more important.
+
+## Method
+
+To do this research we used a data set named ZA7505_v3_0\_0 from GESIS. We analyzed two variables: size_5c, which reports the size for the cities, and E235, which corresponds to the importance of democracy.
+
+The first variable assembles the cities in five groups according to their size:
+
+\- 1: under 5000
+
+\- 2: 5000-20000
+
+\- 3: 20000-100000
+
+\- 4: 100000-500000
+
+\- 5: 500000 and more
+
+The second variable is a Liker scale to express the importance of democracy, where 1 stands for "not at all" and 10 means "absolutely important".
+
+To start our analysis we created a frequency table deleting the values of no interest, such as the "missing values" and the "not answered" :
+
+```{r}
+dataset <- ZA7505_v3_0_0
+with(dataset,table(ZA7505_v3_0_0$E235, ZA7505_v3_0_0$size_5c, exclude= -5:-1))
+```
