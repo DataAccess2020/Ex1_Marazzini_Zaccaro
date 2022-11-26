@@ -36,6 +36,45 @@ The second variable is a Liker scale to express the importance of democracy, whe
 To start our analysis we created a frequency table deleting the values of no interest, such as the "missing values" and the "not answered" :
 
 ```{r}
+librabry(rio)
+import("ZA7505_v3-0-0.dta") 
+
 dataset <- ZA7505_v3_0_0
 with(dataset,table(ZA7505_v3_0_0$E235, ZA7505_v3_0_0$size_5c, exclude= -5:-1))
 ```
+
+## Regression Analysis
+
+To establish if there is an association between the two variables, we run a Regression Analysis, establishing the following hypothesis:
+
+\- H0: statitically independence - Ha: statistically dependence
+
+```{r}
+library(tidyverse)
+cor <- lm(size_5c ~ E235,
+          data = dataset)
+
+summary(cor)
+```
+
+Looking at the results, we can notice a very small P-value, whereas the t-value is huge. From this we can reject the null hypothesis and state that there is an association between the importance of democracy and the size of the cities. Yet, this correlation is weak, as the R-squared value is nearly zero.
+
+### Graphical Visualization
+
+To prove the correlation, we visualized the results in a graph:
+
+```{r}
+ggplot(dataset, aes(x = size_5c, y = E235)) +
+  geom_smooth(method = "lm", se = T) +
+  ylab("Democracy index") +
+  xlab("City Size")
+  theme_light()
+```
+The graph confirms the dependence of the variables, since there is not a flat line but there is a slope. 
+We can notice that the variables are inversely proportional: the bigger the city is, the less democracy is perceive as important.
+
+## Conclusion
+According to our results, it is clear that the importance of democracy and the size of the cities are correlated, even if the strength of the association is weak. 
+In particular, the dependence is inversely proportional: in fact, as the city size increases, the level of the importance of democracy decreases. 
+
+## Discussion
