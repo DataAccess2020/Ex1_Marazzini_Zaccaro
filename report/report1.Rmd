@@ -13,7 +13,7 @@ output: html_document
 
 This is the question that drove our research.
 
-Since in big cities there are more individuals, it's more likely there are more people that want to express their own opinion. For this reason, we hypothise in big cities democracy is perceived as more important.
+Since in big cities there are more individuals, it's more likely there are more people that want to express their own opinion. For this reason, we hypothesis in big cities democracy is perceived as more important.
 
 ## Method
 
@@ -45,9 +45,11 @@ with(dataset,table(ZA7505_v3_0_0$E235, ZA7505_v3_0_0$size_5c, exclude= -5:-1))
 
 ## Regression Analysis
 
-To establish if there is an association between the two variables, we run a Regression Analysis, establishing the following hypothesis:
+To establish if there is an association between the two variables, we run a regression analysis, establishing the following hypothesis:
 
-\- H0: statitically independence - Ha: statistically dependence
+\- H0: statistically independence
+
+\- Ha: statistically dependence
 
 ```{r}
 library(tidyverse)
@@ -70,11 +72,13 @@ ggplot(dataset, aes(x = size_5c, y = E235)) +
   xlab("City Size")
   theme_light()
 ```
-The graph confirms the dependence of the variables, since there is not a flat line but there is a slope. 
-We can notice that the variables are inversely proportional: the bigger the city is, the less democracy is perceive as important.
+
+The graph confirms the dependence of the variables, since there is not a flat line but there is a slope. We can notice that the variables are inversely proportional: the bigger the city is, the less democracy is perceive as important.
 
 ## Conclusion
-According to our results, it is clear that the importance of democracy and the size of the cities are correlated, even if the strength of the association is weak. 
-In particular, the dependence is inversely proportional: in fact, as the city size increases, the level of the importance of democracy decreases. 
+
+According to our results, it is clear that the importance of democracy and the size of the cities are correlated, even if the strength of the association is weak. In particular, the dependence is inversely proportional: in fact, as the city size increases, the level of the importance of democracy decreases.
 
 ## Discussion
+
+We are very surprised because the results are the opposite of our first hypothesis. In fact, we initially thought that in a bigger city there are more people that want to express their own opinion, but the reality is different. Since there is a correlation, there must be a reason that explains these results, but as the strength is very weak, we can not figure out a significant reason for this.
